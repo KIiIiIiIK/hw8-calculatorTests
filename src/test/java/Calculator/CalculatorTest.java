@@ -23,7 +23,7 @@ public class CalculatorTest {
         double first = 6;
         double second = 20;
         String operation = "+";
-        String expectedResult = "26,00";
+        String expectedResult = "26.00";
         //WHEN
         String actualResult = calculator.calculate(first, second, operation);
         //THEN
@@ -37,7 +37,7 @@ public class CalculatorTest {
         double first = 6;
         double second = 20;
         String operation = "-";
-        String expectedResult = "-14,00";
+        String expectedResult = "-14.00";
         //WHEN
         String actualResult = calculator.calculate(first, second, operation);
         //THEN
@@ -51,7 +51,7 @@ public class CalculatorTest {
         double first = 6;
         double second = 20;
         String operation = "*";
-        String expectedResult = "120,00";
+        String expectedResult = "120.00";
         //WHEN
         String actualResult = calculator.calculate(first, second, operation);
         //THEN
@@ -65,7 +65,7 @@ public class CalculatorTest {
         double first = 6;
         double second = 20;
         String operation = "/";
-        String expectedResult = "0,30";
+        String expectedResult = "0.30";
         //WHEN
         String actualResult = calculator.calculate(first, second, operation);
         //THEN
@@ -79,7 +79,7 @@ public class CalculatorTest {
         double first = 6;
         double second = 20;
         String operation = "%";
-        String expectedResult = "1,20";
+        String expectedResult = "1.20";
         //WHEN
         String actualResult = calculator.calculate(first, second, operation);
         //THEN
@@ -88,7 +88,7 @@ public class CalculatorTest {
 
     @ParameterizedTest
     @DisplayName("test for all ops")
-    @CsvSource(value = {"+: 26,00", "-: -14,00", "*: 120,00", "/: 0,30", "%: 1,20"}, delimiter = ':')
+    @CsvSource(value = {"+: 26.00", "-: -14.00", "*: 120.00", "/: 0.30", "%: 1.20"}, delimiter = ':')
     void test_CsvValue(String operation, String expectedResult) {
         //GIVEN
         double first = 6;
@@ -104,19 +104,19 @@ public class CalculatorTest {
     Iterable<DynamicTest> Tests() {
         return Arrays.asList(
                 DynamicTest.dynamicTest("'+' test",
-                        () -> assertEquals("26,00", calculator.calculate(6, 20, "+"))),
+                        () -> assertEquals("26.00", calculator.calculate(6, 20, "+"))),
 
                 DynamicTest.dynamicTest("'-' test",
-                        () -> assertEquals("-14,00", calculator.calculate(6, 20, "-"))),
+                        () -> assertEquals("-14.00", calculator.calculate(6, 20, "-"))),
 
                 DynamicTest.dynamicTest("'*' test",
-                        () -> assertEquals("120,00", calculator.calculate(6, 20, "*"))),
+                        () -> assertEquals("120.00", calculator.calculate(6, 20, "*"))),
 
                 DynamicTest.dynamicTest("'/' test",
-                        () -> assertEquals("0,30", calculator.calculate(6, 20, "/"))),
+                        () -> assertEquals("0.30", calculator.calculate(6, 20, "/"))),
 
                 DynamicTest.dynamicTest("'%' test",
-                        () -> assertEquals("1,20", calculator.calculate(6, 20, "%"))));
+                        () -> assertEquals("1.20", calculator.calculate(6, 20, "%"))));
     }
 
 }

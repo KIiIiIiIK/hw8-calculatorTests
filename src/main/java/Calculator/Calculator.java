@@ -1,7 +1,10 @@
 package Calculator;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class Calculator {
 
@@ -9,10 +12,14 @@ public class Calculator {
 
     public String calculate(double first, double second, String operation){
 
+        Locale currentLocale = Locale.getDefault();
+        DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(currentLocale);
+        otherSymbols.setDecimalSeparator('.');
+
         if (SUPPORTED_OPERATIONS.contains(operation))
         {
             double result = calculationStep(first, second, operation);
-            return new DecimalFormat("0.00").format(result);
+            return new DecimalFormat("0.00", otherSymbols).format(result);
         }
         else
         {
